@@ -3,6 +3,9 @@ from PyQt6.QtWidgets import QMainWindow, QPushButton, QVBoxLayout, QWidget, QFil
 from PyQt6.QtGui import QAction, QIcon
 from PyQt6.QtCore import Qt
 
+import utils as UTILS
+
+
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -12,11 +15,11 @@ class MainWindow(QMainWindow):
         toolbar.setToolButtonStyle(Qt.ToolButtonStyle.ToolButtonTextUnderIcon)
         self.addToolBar(toolbar)
         
-        add_file_button = QAction(QIcon(r"Yusuke_Kamiyamane\icons\notebook--plus.png"),"Add a file", self)
+        add_file_button = QAction(QIcon(UTILS.icon_path("notebook--plus")),"Add a file", self)
         add_file_button.setStatusTip("Click to add a pdf file")
         add_file_button.triggered.connect(self.addFileButtonOnClick)
         
-        merge_button = QAction(QIcon(r"Yusuke_Kamiyamane\icons\document-pdf.png"),"Merge", self)
+        merge_button = QAction(QIcon(UTILS.icon_path("document-pdf")),"Merge", self)
         merge_button.setStatusTip("Merge every files")
         merge_button.triggered.connect(self.mergeButtonOnClick)
         
@@ -29,4 +32,6 @@ class MainWindow(QMainWindow):
     
     def mergeButtonOnClick(self, s):
         print("Click", s)
+
+
         
