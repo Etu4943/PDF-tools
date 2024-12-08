@@ -11,6 +11,7 @@ class MainWindow(QMainWindow):
         super().__init__()
         
         self.setWindowTitle("PDF Tools")
+        self.setMinimumSize(500,300)
         toolbar = QToolBar()
         toolbar.setToolButtonStyle(Qt.ToolButtonStyle.ToolButtonTextUnderIcon)
         self.addToolBar(toolbar)
@@ -27,7 +28,7 @@ class MainWindow(QMainWindow):
         toolbar.addAction(merge_button)
     
     def addFileButtonOnClick(self, s):
-        dialog = QFileDialog.getOpenFileName(self, "Open file", "/")
+        dialog = QFileDialog.getOpenFileName(self, "Open file", "/", "File (*.pdf)")
         print(dialog)
     
     def mergeButtonOnClick(self, s):
